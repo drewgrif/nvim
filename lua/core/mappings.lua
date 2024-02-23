@@ -4,26 +4,31 @@ local keymap = vim.keymap
 local opts = { silent = true, noremap = true }
 
 -- General
-keymap.set("n", "<leader>q", ":qa! <cr>", opts)
+--  e keymap.set("n", "<leader>q", ":qa! <cr>", opts)
 keymap.set("n", "<leader>a", "gg<S-v>G", opts)
 keymap.set("v", "<", "<gv", opts)
 keymap.set("v", ">", ">gv", opts)
 
 -- Window
-keymap.set("n", "<C-h>", "<C-w>h", opts)
-keymap.set("n", "<C-j>", "<C-w>j", opts)
-keymap.set("n", "<C-k>", "<C-w>k", opts)
-keymap.set("n", "<C-l>", "<C-w>l", opts)
-keymap.set("n", "<C-n>", ":tabnew <cr>", opts)
-keymap.set("n", "<S-h>", "<cmd> BufferLineCyclePrev <cr>", opts)
-keymap.set("n", "<S-l>", "<cmd> BufferLineCycleNext <cr>", opts)
-keymap.set("n", "<leader>x", "<cmd> bdelete <cr>", opts)
-keymap.set("n", "<C-Up>", ":resize -2 <cr>", opts)
-keymap.set("n", "<C-Down>", ":resize +2 <cr>", opts)
-keymap.set("n", "<C-Left>", ":vertical resize -2 <cr>", opts)
-keymap.set("n", "<C-Right>", ":vertical resize +2 <cr>", opts)
-keymap.set("n", "<leader>sh", ":split <cr>", opts)
-keymap.set("n", "<leader>sv", ":vsplit <cr>", opts)
+
+-- Tab bindings 
+keymap.set("n", "<leader>t", ":tabnew<cr>", opts)		-- space+t creates new tab
+keymap.set("n", "<leader>x", ":tabclose<cr>", opts)		-- space+x closes current tab
+keymap.set("n", "<leader>j", ":tabprevious<cr>", opts)	-- space+j moves to previous tab
+keymap.set("n", "<leader>k", ":tabnext<cr>", opts)		-- space+k moves to next tab
+
+-- buffer navigation
+keymap.set("n", "<Tab>", ":bnext <cr>", opts)			-- Tab goes to next buffer
+keymap.set("n", "<S-Tab>", ":bprevious <cr>", opts)	-- Shift+Tab goes to previous buffer
+keymap.set("n", "<leader>q", ":bd <cr>", opts)		-- Space+d deletes current buffer
+
+-- easy split generation
+keymap.set("n", "<leader>v", ":vsplit", opts)			-- space+v creates a veritcal split
+keymap.set("n", "<leader>s", ":split", opts)			-- space+s creates a horizontal split
+
+-- adjust split sizes easier
+keymap.set("n", "<C-Left>", ":vertical resize +3<cr>")		-- Control+Left resizes vertical split +
+keymap.set("n", "<C-Right>", ":vertical resize -3<cr>")	-- Control+Right resizes vertical split -
 
 -- Oil.nvim
 keymap.set("n", "<leader>e", function()
