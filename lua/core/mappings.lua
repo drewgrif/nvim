@@ -49,3 +49,6 @@ end, opts)
 
 -- Fugitive
 keymap.set("n", "<leader>g", ":vertical Git <cr>", opts)
+
+-- Markdown Preview
+keymap.set("n", "<leader>md", ":MarkdownPreviewToggle<cr>", opts)
