@@ -20,7 +20,7 @@ keymap.set("n", "<leader>k", ":tabnext<cr>", opts)		-- space+k moves to next tab
 -- buffer navigation
 keymap.set("n", "<Tab>", ":bnext <cr>", opts)			-- Tab goes to next buffer
 keymap.set("n", "<S-Tab>", ":bprevious <cr>", opts)	-- Shift+Tab goes to previous buffer
-keymap.set("n", "<leader>q", ":bd <cr>", opts)		-- Space+d deletes current buffer
+keymap.set("n", "<leader>q", ":bd <cr>", opts)		-- Space+q deletes current buffer
 
 -- easy split generation
 keymap.set("n", "<leader>v", ":vsplit", opts)			-- space+v creates a veritcal split
