@@ -13,11 +13,9 @@ Plugins included:
 * bufferline - https://github.com/akinsho/bufferline.nvim
 * colorizer - https://github.com/norcalli/nvim-colorizer.lua
 * colorscheme - https://github.com/rebelot/kanagawa.nvim
-* dressing - https://github.com/stevearc/dressing.nvim
 * lualine - https://github.com/nvim-lualine/lualine.nvim
 * markdown-preview - https://github.com/iamcco/markdown-preview.nvim
 * oil.lua - https://github.com/stevearc/oil.nvim
-* snippet - https://github.com/L3MON4D3/LuaSnip
 * telescope - https://github.com/nvim-telescope/telescope.nvim
 * transparent - https://github.com/xiyaowong/transparent.nvim
 * treesitter - https://github.com/nvim-treesitter/nvim-treesitter
