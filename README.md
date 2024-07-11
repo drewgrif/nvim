@@ -13,7 +13,6 @@ Plugins included:
 * bufferline - https://github.com/akinsho/bufferline.nvim
 * colorizer - https://github.com/norcalli/nvim-colorizer.lua
 * colorscheme - https://github.com/rebelot/kanagawa.nvim
-* completion - https://github.com/hrsh7th/nvim-cmp
 * dressing - https://github.com/stevearc/dressing.nvim
 * lualine - https://github.com/nvim-lualine/lualine.nvim
 * markdown-preview - https://github.com/iamcco/markdown-preview.nvim
