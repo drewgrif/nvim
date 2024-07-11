@@ -2,7 +2,7 @@
 
 _Installing neovim from the debian bookworm packages only provides v0.7.2_
 
-The debian package included in this repo will install v0.9.5.
+The debian package included in this repo will install v0.10.0.
 
 The nvim configuration files are within the nvim directory.
 
