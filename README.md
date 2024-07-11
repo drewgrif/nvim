@@ -15,11 +15,6 @@ Plugins included:
 * colorscheme - https://github.com/rebelot/kanagawa.nvim
 * completion - https://github.com/hrsh7th/nvim-cmp
 * dressing - https://github.com/stevearc/dressing.nvim
-* lsp-config
-	1. https://github.com/williamboman/mason.nvim
-	2. https://github.com/williamboman/mason-lspconfig.nvim
-	3. https://github.com/neovim/nvim-lspconfig
-
 * lualine - https://github.com/nvim-lualine/lualine.nvim
 * markdown-preview - https://github.com/iamcco/markdown-preview.nvim
 * oil.lua - https://github.com/stevearc/oil.nvim
