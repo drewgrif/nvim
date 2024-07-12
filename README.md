@@ -26,6 +26,8 @@ Plugins included:
 
 _Source:  [LazyVim](https://www.lazyvim.org/installation 'LazyVim')_
 
+* Make a backup of your current Neovim files:
+
 ```
 # required
 mv ~/.config/nvim{,.bak}
@@ -37,11 +39,17 @@ mv ~/.cache/nvim{,.bak}
 
 ```
 
+* Clone the justaguylinux nvim packages
+
 ```
 git clone https://github.com/drewgrif/nvim
 
 ```
 
-OPTIONAL:
-1. Install neovim using the current stable neovim provided in the cloned nvim directory
+* Remove the .git folder, so you can add it to your own repo later
+
+```
+rm -rf ~/.config/nvim/.git
+
+```
 
