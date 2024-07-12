@@ -20,3 +20,28 @@ Plugins included:
 * transparent - https://github.com/xiyaowong/transparent.nvim
 * treesitter - https://github.com/nvim-treesitter/nvim-treesitter
 * vim-fugitive - https://github.com/tpope/vim-fugitive
+
+
+## If you are replacing a neovim configurations, you may want to follow these steps.
+
+_Source:  [LazyVim](http://www.lazyvim.org/installation 'LazyVim')_
+
+```
+# required
+mv ~/.config/nvim{,.bak}
+
+# optional but recommended
+mv ~/.local/share/nvim{,.bak}
+mv ~/.local/state/nvim{,.bak}
+mv ~/.cache/nvim{,.bak}
+
+```
+
+```
+git clone https://github.com/drewgrif/nvim
+
+```
+
+OPTIONAL:
+1. Install neovim using the current stable neovim provided in the cloned nvim directory
+
