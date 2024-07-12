@@ -48,7 +48,6 @@ git clone https://github.com/drewgrif/nvim
 
 ```
 rm -rf ~/.config/nvim/.git
-
 ```
 
 ### Installing neovim from this github
