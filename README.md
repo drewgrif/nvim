@@ -24,7 +24,7 @@ Plugins included:
 
 ## If you are replacing a neovim configurations, you may want to follow these steps.
 
-_Source:  [LazyVim](http://www.lazyvim.org/installation 'LazyVim')_
+_Source:  [LazyVim](https://www.lazyvim.org/installation 'LazyVim')_
 
 ```
 # required
