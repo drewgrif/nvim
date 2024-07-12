@@ -62,3 +62,4 @@ NOTE:  You may have to UPDATE the Lazy
 * After installing and running neovim
 * Type ```:Lazy``` to access the LazyVim menu.
 
+![2024-07-12_12-16](https://github.com/user-attachments/assets/c77446d4-e3bf-44e9-a7fc-5e4a6d99b4af)
