@@ -22,7 +22,7 @@ Plugins included:
 * vim-fugitive - https://github.com/tpope/vim-fugitive
 
 
-## If you are replacing a neovim configurations, you may want to follow these steps.
+# Neovim Installation
 
 _Source:  [LazyVim](https://www.lazyvim.org/installation 'LazyVim')_
 
@@ -36,14 +36,12 @@ mv ~/.config/nvim{,.bak}
 mv ~/.local/share/nvim{,.bak}
 mv ~/.local/state/nvim{,.bak}
 mv ~/.cache/nvim{,.bak}
-
 ```
 
 * Clone the justaguylinux nvim packages
 
 ```
 git clone https://github.com/drewgrif/nvim
-
 ```
 
 * Remove the .git folder, so you can add it to your own repo later
@@ -52,4 +50,15 @@ git clone https://github.com/drewgrif/nvim
 rm -rf ~/.config/nvim/.git
 
 ```
+
+### Installing neovim from this github
+
+```
+sudo apt install ~/.config/nvim/nvim-linux64.deb
+```
+
+NOTE:  You may have to UPDATE the Lazy
+
+* After installing and running neovim
+* Type ```:Lazy``` to access the LazyVim menu.
 
