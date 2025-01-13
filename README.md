@@ -63,3 +63,7 @@ NOTE:  You may have to UPDATE the Lazy
 * Type "U" to update.
 
 ![2024-07-12_12-16](https://github.com/user-attachments/assets/c77446d4-e3bf-44e9-a7fc-5e4a6d99b4af)
+
+!! note
+if there is a markdown preview error you may way to 
+```:call mkdp#util#install()```
