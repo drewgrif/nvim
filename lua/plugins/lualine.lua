@@ -7,7 +7,7 @@ return
          },
          opts = {
              options = {
-                 theme = "horizon",
+                 theme = "OceanicNext",
                  component_separators = { left = "│", right = "│" },
                  section_separators = { left = "", right = "" },
                  globalstatus = true,

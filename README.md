@@ -2,7 +2,7 @@
 
 _Installing neovim from the debian bookworm packages only provides v0.7.2_
 
-The debian package included in this repo will install v0.10.2.
+The debian package included in this repo will install v0.10.3.
 
 The nvim configuration files are within the nvim directory.
 
@@ -61,6 +61,10 @@ NOTE:  You may have to UPDATE the Lazy
 * After installing and running neovim
 * Type ```:Lazy``` to access the LazyVim menu.  
 * Type "U" to update.
+
+> [!NOTE]  
+> I recommend installing FZF and ripgrep.  ```sudo apt install fzf ripgrep```
+
 
 ![2024-07-12_12-16](https://github.com/user-attachments/assets/c77446d4-e3bf-44e9-a7fc-5e4a6d99b4af)
 

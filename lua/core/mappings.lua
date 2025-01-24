@@ -10,6 +10,8 @@ keymap.set("v", "<", "<gv", opts)
 keymap.set("v", ">", ">gv", opts)
 
 -- Window
+keymap.set("n", "<leader>m", ":Alpha<cr>", opts)		-- alpha menu
+
 
 -- Tab bindings 
 keymap.set("n", "<leader>t", ":tabnew<cr>", opts)		-- space+t creates new tab

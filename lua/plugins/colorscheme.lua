@@ -1,7 +1,7 @@
 return 
 	{
-        "rebelot/kanagawa.nvim",
+        "mhartington/oceanic-next",
         config = function()
-           vim.cmd.colorscheme("kanagawa-wave")
+           vim.cmd.colorscheme("OceanicNext")
         end,
     }	
