@@ -1,8 +1,8 @@
 return 
 	{
-        "EdenEast/nightfox.nvim",
+        'mhartington/oceanic-next',
         config = function()
-           vim.cmd.colorscheme("nightfox")
+           vim.cmd.colorscheme("OceanicNext")
         end,
     }	
  
