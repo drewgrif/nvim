@@ -1,6 +1,6 @@
 # 🧠 JustAGuy Linux Neovim Config
 
-> Minimal, fast, and intuitive Neovim setup – with batteries included.
+> Minimal, fast, and intuitive Neovim setup for the user - not a programmer.
 
 This is my personal Neovim configuration, designed for speed and simplicity without sacrificing power. It's built with a Lua-first mindset and includes everything needed to without an LSP (since I really don't need one).
 
