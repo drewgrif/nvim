@@ -81,7 +81,7 @@ nvim
 The config will auto-install all plugins on first launch.
 
 > 📝 **Markdown users:** If `<leader>md` doesn’t work at first,  
-> see [Markdown Preview Error Fix](#markdown-preview-error-fix) below.
+> see [Markdown Preview Error Fix](https://github.com/drewgrif/nvim?tab=readme-ov-file#-markdown-preview-error-fix) below.
 
 ---
 
