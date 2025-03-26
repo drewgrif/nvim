@@ -8,6 +8,8 @@ It’s tuned for users who prefer a distraction-free editing experience, enhance
 
 ---
 
+![2025-03-26_15-54](https://github.com/user-attachments/assets/b4e262ba-6e63-41ac-89ff-410055f071c7)
+
 ## ✨ Features
 
 - ⚡ Fast startup using lazy.nvim
