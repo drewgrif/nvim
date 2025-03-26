@@ -7,7 +7,7 @@ return
          },
          opts = {
              options = {
-                 theme = "OceanicNext",
+                 theme = "github_dark_default",
                  component_separators = { left = "│", right = "│" },
                  section_separators = { left = "", right = "" },
                  globalstatus = true,

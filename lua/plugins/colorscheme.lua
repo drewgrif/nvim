@@ -1,8 +1,8 @@
 return 
 	{
-        'mhartington/oceanic-next',
+        'projekt0n/github-nvim-theme',
         config = function()
-           vim.cmd.colorscheme("OceanicNext")
+           vim.cmd.colorscheme("github_dark_default")
         end,
     }	
  
