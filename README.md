@@ -117,12 +117,6 @@ If you get an error when using `<leader>md` to preview a Markdown file, you may 
 
 ---
 
-Would you like this placed near the keybindings section or under its own **Troubleshooting** heading at the end of the README?
-
----
-
-Let me know if you'd like this folded into the README above or split into a separate `TROUBLESHOOTING.md`.
-
 ## 🛠 Requirements
 
 - `ripgrep` (for live grep)
