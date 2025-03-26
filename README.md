@@ -1,19 +1,21 @@
 # 🧠 JustAGuy Linux Neovim Config
 
-> Minimal, fast, and intuitive Neovim setup for the user - not a programmer.
+> Minimal, fast, and intuitive Neovim setup.
 
-This is my personal Neovim configuration, designed for speed and simplicity without sacrificing power. It's built with a Lua-first mindset and includes everything needed to without an LSP (since I really don't need one).
+This is my personal Neovim configuration, built for speed and simplicity.
+No LSPs. I intentionally keep it lightweight by avoiding Language Server Protocol integrations.
+It’s tuned for users who prefer a distraction-free editing experience, enhanced by plugins for navigation, visuals, and productivity — but without the overhead of full-blown IDE features.
 
 ---
 
 ## ✨ Features
 
 - ⚡ Fast startup using lazy.nvim
-- 🧠 Treesitter for beautiful, context-aware syntax highlighting
-- 🔍 Telescope for fuzzy finding anything
-- 🎨 GitHub-inspired colorscheme with `github_dark_default`
-- 🧭 Intuitive keybinds with which-key
-- 📦 Easy to extend and modify
+- 🧠 Treesitter for smart syntax highlighting
+- 🔍 Telescope for fuzzy finding everything
+- 🎨 GitHub-inspired theme (`github_dark_default`)
+- 🧭 Intuitive keybindings
+- 📦 Minimal, modular, and extendable
 
 ---
 
@@ -22,40 +24,43 @@ This is my personal Neovim configuration, designed for speed and simplicity with
 | Plugin | Description |
 |--------|-------------|
 | [**alpha-nvim**](https://github.com/goolord/alpha-nvim) | Customizable dashboard/start screen |
-| [**indent-blankline.nvim**](https://github.com/lukas-reineke/indent-blankline.nvim) | Adds indentation guides to blank lines |
-| [**bufferline.nvim**](https://github.com/akinsho/bufferline.nvim) | Tab-like buffer line with icons and styling |
-| [**nvim-colorizer.lua**](https://github.com/norcalli/nvim-colorizer.lua) | Displays color codes with actual colors inline |
-| [**github-nvim-theme**](https://github.com/projekt0n/github-nvim-theme) | GitHub-styled theme (using `github_dark_default`) |
-| [**lualine.nvim**](https://github.com/nvim-lualine/lualine.nvim) | Lightweight and configurable statusline |
-| [**markdown-preview.nvim**](https://github.com/iamcco/markdown-preview.nvim) | Live Markdown preview in browser |
-| [**oil.nvim**](https://github.com/stevearc/oil.nvim) | Edit your filesystem like a normal Neovim buffer |
-| [**telescope.nvim**](https://github.com/nvim-telescope/telescope.nvim) | Fuzzy finder for files, text, buffers, and more |
-| [**transparent.nvim**](https://github.com/xiyaowong/transparent.nvim) | Toggle transparency for Neovim and plugins |
-| [**nvim-treesitter**](https://github.com/nvim-treesitter/nvim-treesitter) | High-performance syntax highlighting and code navigation |
-| [**vim-fugitive**](https://github.com/tpope/vim-fugitive) | Git integration for Vim/Neovim |
+| [**indent-blankline.nvim**](https://github.com/lukas-reineke/indent-blankline.nvim) | Indentation guides |
+| [**bufferline.nvim**](https://github.com/akinsho/bufferline.nvim) | Tab-like buffer line |
+| [**nvim-colorizer.lua**](https://github.com/norcalli/nvim-colorizer.lua) | Inline color preview |
+| [**github-nvim-theme**](https://github.com/projekt0n/github-nvim-theme) | GitHub color theme |
+| [**lualine.nvim**](https://github.com/nvim-lualine/lualine.nvim) | Customizable statusline |
+| [**markdown-preview.nvim**](https://github.com/iamcco/markdown-preview.nvim) | Markdown preview in browser |
+| [**oil.nvim**](https://github.com/stevearc/oil.nvim) | File explorer as a buffer |
+| [**telescope.nvim**](https://github.com/nvim-telescope/telescope.nvim) | Fuzzy finder |
+| [**transparent.nvim**](https://github.com/xiyaowong/transparent.nvim) | Toggle background transparency |
+| [**nvim-treesitter**](https://github.com/nvim-treesitter/nvim-treesitter) | Syntax highlighting and parsing |
+| [**vim-fugitive**](https://github.com/tpope/vim-fugitive) | Git integration |
 
 ---
 
 ## 🚀 Installation
 
-### 1. Install Neovim 0.11.0
+### 1. Neovim 0.10 or Newer Required
 
-You can install **Neovim 0.11.0** using the provided `.deb` file:
+You can use your system's version of Neovim as long as it's **v0.10.0 or higher**.
+
+> ✅ Optional: If you want to install **Neovim 0.11.0**, use the `.deb` included here:
 
 ```bash
 wget https://github.com/drewgrif/nvim/raw/main/nvim-linux-x86_64.deb
 sudo apt install ./nvim-linux-x86_64.deb
 ```
 
-> 💡 This installs the latest **stable** release (0.11.0) provided with this config.  
-> You can also build from source or use your distro’s package manager if preferred.
+---
 
-### 2. Backup Your Old Config (optional)
+### 2. Backup Your Existing Config (Optional)
 
 ```bash
 mv ~/.config/nvim ~/.config/nvim.backup
 mv ~/.local/share/nvim ~/.local/share/nvim.backup
 ```
+
+---
 
 ### 3. Clone This Config
 
@@ -63,103 +68,59 @@ mv ~/.local/share/nvim ~/.local/share/nvim.backup
 git clone https://github.com/drewgrif/nvim ~/.config/nvim
 ```
 
+---
+
 ### 4. Launch Neovim
 
 ```bash
 nvim
 ```
 
-The config will auto-install plugins on first launch.
+The config will auto-install all plugins on first launch.
 
 ---
 
-## ⌨️ Keybindings
+## ⌨️ Keybinding Highlights
 
-Launch the `which-key` popup anytime with `<leader>`. Below are the default keymaps:
+| Action                | Keybinding                  | Action                | Keybinding                  |
+|-----------------------|-----------------------------|------------------------|-----------------------------|
+| **Find File**         | `<leader>ff`                | **Find Word**         | `<leader>fw`                |
+| **Create Tab**        | `<leader>t`                 | **Close Tab**         | `<leader>x`                 |
+| **Next Tab**          | `<leader>j`                 | **Prev Tab**          | `<leader>k`                 |
+| **Next Buffer**       | `<Tab>`                     | **Prev Buffer**       | `<S-Tab>`                   |
+| **Split Horizontally**| `<leader>s`                 | **Split Vertically**  | `<leader>v`                 |
+| **Resize Left**       | `<C-Left>`                  | **Resize Right**      | `<C-Right>`                 |
+| **File Explorer**     | `<leader>e`                 |                        |                             |
 
-### 🔁 General
+> ℹ️ Full keybindings live in `lua/core/mappings.lua`
 
-| Keybinding | Action |
-|------------|--------|
-| `<leader>a` | Select all (`gg<S-v>G`) |
-| `<leader>q` | Close current buffer |
-| `<` / `>` in visual mode | Indent left/right and reselect |
-| `<Tab>` / `<S-Tab>` | Next / Previous buffer |
+---
 
-### 🪟 Window Management
+## 🐛 Markdown Preview Error Fix
 
-| Keybinding | Action |
-|------------|--------|
-| `<leader>v` | Vertical split |
-| `<leader>s` | Horizontal split |
-| `<C-Left>` / `<C-Right>` | Resize vertical split |
+If you see an error when trying to use `<leader>md` to launch Markdown Preview, you may need to manually install the plugin’s Node dependencies:
 
-### 🧭 Tab Navigation
-
-| Keybinding | Action |
-|------------|--------|
-| `<leader>t` | New tab |
-| `<leader>x` | Close current tab |
-| `<leader>j` / `<leader>k` | Previous / Next tab |
-
-### 📁 File Explorer (Oil.nvim)
-
-| Keybinding | Action |
-|------------|--------|
-| `<leader>e` | Toggle Oil (floating file manager) |
-
-### 🔍 Telescope Search
-
-| Keybinding | Action |
-|------------|--------|
-| `<leader>ff` | Find files |
-| `<leader>fw` | Live grep |
-| `<leader>fh` | Help tags |
-| `<leader>fc` | Find files in `~/.config/nvim` |
-| `<leader>gc` | Git branches (Telescope) |
-
-
-### 📝 Markdown
-
-| Keybinding | Action |
-|------------|--------|
-| `<leader>md` | Toggle Markdown preview |
-
-### 🚀 Dashboard
-
-| Keybinding | Action |
-|------------|--------|
-| `<leader>m` | Open Alpha dashboard |
-
-🔧 All keybindings are defined in:
-
-```
-lua/core/mappings.lua
+```vim
+:call mkdp#util#install()
 ```
 
----
-
-## 🎨 Colorschemes
-
-This config uses [**github-nvim-theme**](https://github.com/projekt0n/github-nvim-theme) with the `github_dark_default` variant.
-
-You can change themes easily by editing your `init.lua` or `colorscheme.lua`.
+> This will set up everything needed to preview Markdown in your browser.
 
 ---
+
+Let me know if you'd like this folded into the README above or split into a separate `TROUBLESHOOTING.md`.
 
 ## 🛠 Requirements
 
-- `ripgrep` (for Telescope live grep)
-- `fd` (for fast file searching)
-- `nerd-fonts` (recommended for icons)
+- `ripgrep` (for live grep)
+- `fd` (for file search)
+- A **Nerd Font** terminal (for icons)
 
-Install them with:
+Install the required packages:
 
 ```bash
 sudo apt install ripgrep fd-find
 ```
-
-(Also make sure you’re using a Nerd Font terminal like WezTerm, Kitty, or Alacritty.)
 
 ---
 
@@ -167,19 +128,18 @@ sudo apt install ripgrep fd-find
 
 ```text
 nvim/
-├── init.lua                  # Entry point
+├── init.lua
 ├── lua/
-│   ├── core/                 # Options and mappings
-│   ├── config/               # Plugin configs and general settings
-│   ├── plugins/              # Plugin declarations for lazy.nvim
-│   └── colorscheme/          # Custom themes + lualine support
-└── nvim-linux-x86_64.deb     # Latest Neovim .deb installer (0.11.0)
+│   ├── core/          # Options + keymaps
+│   ├── config/        # Plugin configs
+│   ├── plugins/       # Plugin declarations
+│   └── colorscheme/   # Custom colorschemes
+└── nvim-linux-x86_64.deb
 ```
 
 ---
 
 ## 🙋‍♂️ Maintained By
 
-**JustAGuy Linux**
-
-🖥️ YouTube: [JustAGuy Linux](https://youtube.com/@justaguylinux)  
+**JustAGuy Linux**  
+📺 YouTube: [@justaguylinux](https://youtube.com/@justaguylinux)  
