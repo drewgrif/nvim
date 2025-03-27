@@ -144,8 +144,6 @@ nvim/
 ├── lua/
 │   ├── core/          # Options + keymaps
 │   ├── config/        # Plugin configs
-│   ├── plugins/       # Plugin declarations
-│   └── colorscheme/   # Custom colorschemes
 └── nvim-linux-x86_64.deb
 ```
 
