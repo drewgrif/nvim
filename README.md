@@ -127,8 +127,8 @@ nvim/
 
 Example for Firefox:
 
-- `Edit the ~/.config/nvim/lua/plugins/markdown.lua`
-- Uncomment and edit the browser `vim.g.mkdp_browser` line
+- Edit the `~/.config/nvim/lua/plugins/markdown.lua`
+- Change the `vim.g.mkdp_browser` line.
 
 
 ```lua
