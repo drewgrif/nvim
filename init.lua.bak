@@ -20,19 +20,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Initialize lazy with dynamic loading of anything in the plugins directory
 require("lazy").setup("plugins", {
 	change_detection = {
-		enabled = true,
-		notify = false,
+		enabled = true, -- automatically check for config file changes and reload the ui
+		notify = false, -- turn off notifications whenever plugin changes are made
 	},
 })
-
--- 🚀 Auto-sync plugins on first install
-local lockfile = vim.fn.stdpath("data") .. "/lazy/lazy-lock.json"
-if vim.fn.filereadable(lockfile) == 0 then
-	vim.api.nvim_create_autocmd("User", {
-		pattern = "LazyDone",
-		once = true,
-		callback = function()
-			require("lazy").sync()
-		end,
-	})
-end
