@@ -4,7 +4,14 @@ return {
   ft = { "markdown" },
   config = function()
     vim.g.mkdp_filetypes = { "markdown" }
-
+    
+    -- Set custom browser
+    -- For Thorium:
+    -- vim.g.mkdp_browser = "thorium"
+    
+    -- For Firefox:
+    -- vim.g.mkdp_browser = "firefox"
+    
     -- Run the installation process after the plugin is loaded
     vim.defer_fn(function()
       vim.cmd("call mkdp#util#install()")
