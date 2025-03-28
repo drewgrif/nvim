@@ -1,8 +1,15 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdateSync", -- runs synchronously, no prompt spam
+  build = ":TSUpdate", -- async but stable
   event = { "BufReadPost", "BufNewFile" },
   config = function()
+    -- Optional: warn if missing compiler
+    if vim.fn.executable("gcc") == 0 or vim.fn.executable("make") == 0 then
+      vim.schedule(function()
+        vim.notify("⚠️  Tree-sitter may fail to compile parsers: missing gcc/make", vim.log.levels.WARN)
+      end)
+    end
+
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
         "c", "lua", "vim", "vimdoc", "query",
