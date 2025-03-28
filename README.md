@@ -123,6 +123,16 @@ nvim/
 └── nvim-linux-x86_64.deb
 ```
 
+## 🌐 Custom Browser for Markdown Preview
+
+Example for Firefox:
+
+`Edit the ~/.config/nvim/lua/plugins/markdown.lua`
+
+```lua
+vim.g.mkdp_browser = "firefox"
+```
+
 ---
 
 ## 🙋‍♂️ Maintained By
