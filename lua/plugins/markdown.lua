@@ -7,7 +7,7 @@ return {
     
     -- Set custom browser
     -- For Thorium:
-    -- vim.g.mkdp_browser = "thorium"
+    -- vim.g.mkdp_browser = "thorium-browser"
     
     -- For Firefox:
     -- vim.g.mkdp_browser = "firefox"
