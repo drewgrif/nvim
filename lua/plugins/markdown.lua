@@ -11,18 +11,18 @@ return {
       return vim.fn.isdirectory(build_path) == 1
     end
 
-    -- Check if installation has already been completed via a marker file
+    -- Marker file to track successful installation
     local install_marker = vim.fn.stdpath("config") .. "/.mkdp_installed"
     if vim.fn.filereadable(install_marker) == 1 then
-      return -- No need to show the popup again if the marker exists
+      return -- No popup if marker exists
     end
 
-    -- If npm is available and the plugin isn't built, run the install once
+    -- If npm is available and build hasn't been done, run it once
     if not is_built() and vim.fn.executable("npm") == 1 then
       vim.schedule(function()
         vim.notify("📦 Building markdown-preview.nvim (first-time setup)...", vim.log.levels.INFO)
         vim.cmd("call mkdp#util#install()")
-        -- After successful install, mark it as done by creating a file
+        -- After successful install, create marker file
         vim.fn.writefile({}, install_marker) -- Create the marker file
       end)
 
@@ -32,11 +32,11 @@ return {
         local buf = vim.api.nvim_create_buf(false, true)
         local lines = {
           "⚠️ npm is not installed.",
-          "To build markdown-preview.nvim manually, run:",
+          "To manually install markdown-preview.nvim, run:",
           "",
           ":call mkdp#util#install()",
           "",
-          "← You can copy the above command"
+          "Please run the command above in Neovim's command line."
         }
         vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
 
@@ -57,5 +57,3 @@ return {
     end
   end,
 }
-
-
