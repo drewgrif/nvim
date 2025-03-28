@@ -127,10 +127,22 @@ nvim/
 
 Example for Firefox:
 
-`Edit the ~/.config/nvim/lua/plugins/markdown.lua`
+- `Edit the ~/.config/nvim/lua/plugins/markdown.lua`
+- Uncomment and edit the browser `vim.g.mkdp_browser` line
+
 
 ```lua
-vim.g.mkdp_browser = "firefox"
+config = function()
+    vim.g.mkdp_filetypes = { "markdown" }
+    
+    -- Set custom browser
+    -- For Thorium:
+    -- vim.g.mkdp_browser = "thorium-browser"
+    
+    -- For Firefox:
+    -- vim.g.mkdp_browser = "firefox"
+    
+    -- Run the installation process after the plugin is loaded
 ```
 
 ---
