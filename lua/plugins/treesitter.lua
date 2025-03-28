@@ -1,6 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
+  build = ":TSUpdateSync", -- runs synchronously, no prompt spam
   event = { "BufReadPost", "BufNewFile" },
   config = function()
     require("nvim-treesitter.configs").setup({
