@@ -4,6 +4,10 @@ return {
   cmd = { "MarkdownPreview", "MarkdownPreviewToggle", "MarkdownPreviewStop" },
   init = function()
     vim.g.mkdp_filetypes = { "markdown" }
+    -- Initialize the flag to track if the popup has been shown
+    if vim.g.mkdp_popup_shown == nil then
+      vim.g.mkdp_popup_shown = false
+    end
   end,
   config = function()
     -- Function to check if the plugin has already been built
@@ -12,34 +16,8 @@ return {
       return vim.fn.isdirectory(build_path) == 1
     end
 
-    -- Define the marker file path (storing it in the `nvim` data directory)
-    local install_marker = vim.fn.stdpath("data") .. "/nvim/.mkdp_installed"
-
-    -- If the marker file exists, skip the installation and popup
-    if vim.fn.filereadable(install_marker) == 1 then
-      return -- No need to show the popup again if the file exists
-    end
-
-    -- Check if `npm` is available and the plugin hasn't been built
-    if not is_built() and vim.fn.executable("npm") == 1 then
-      vim.schedule(function()
-        vim.notify("📦 Building markdown-preview.nvim (first-time setup)...", vim.log.levels.INFO)
-        vim.cmd("call mkdp#util#install()")
-        
-        -- After successful install, create the marker file immediately
-        -- This ensures the popup won't appear again
-        local file = io.open(install_marker, "w") -- Open the file for writing
-        if file then
-          file:write("") -- Write an empty string to create the file
-          file:close() -- Close the file after writing
-          print("Marker file created at: " .. install_marker) -- Debug message
-        else
-          print("Failed to create marker file!") -- Debug message
-        end
-      end)
-
-    -- If `npm` is missing and the installation hasn't been done, show the popup
-    elseif vim.fn.executable("npm") == 0 then
+    -- Only show the popup once in the session if npm is missing
+    if vim.fn.executable("npm") == 0 and not is_built() and not vim.g.mkdp_popup_shown then
       vim.schedule(function()
         local buf = vim.api.nvim_create_buf(false, true)
         local lines = {
@@ -65,6 +43,9 @@ return {
         }
 
         vim.api.nvim_open_win(buf, true, win_opts)
+
+        -- Set the flag to prevent the popup from showing again
+        vim.g.mkdp_popup_shown = true
       end)
     end
   end,
