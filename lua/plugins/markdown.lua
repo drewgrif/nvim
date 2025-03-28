@@ -6,7 +6,7 @@ return {
     vim.g.mkdp_filetypes = { "markdown" }
   end,
   config = function()
-    -- Function to check if the plugin has already been built
+    -- Helper function to check if the plugin has already been built
     local function is_built()
       local build_path = vim.fn.stdpath("data") .. "/lazy/markdown-preview.nvim/app/node_modules"
       return vim.fn.isdirectory(build_path) == 1
@@ -20,17 +20,24 @@ return {
       return -- No need to show the popup again if the file exists
     end
 
-    -- If `npm` is available and the plugin hasn't been built, run the installation
+    -- Check if `npm` is available and the plugin hasn't been built
     if not is_built() and vim.fn.executable("npm") == 1 then
       vim.schedule(function()
         vim.notify("📦 Building markdown-preview.nvim (first-time setup)...", vim.log.levels.INFO)
         vim.cmd("call mkdp#util#install()")
         
-        -- After successful install, create the marker file
+        -- After successful install, create marker file
+        -- Ensure the plugin has installed properly before writing the marker
+        vim.cmd('autocmd VimEnter * if !filereadable("' .. install_marker .. '") | call mkdp#util#install() | endif')
+
+        -- Once installation completes, write the marker file
         local file = io.open(install_marker, "w") -- Open the file for writing
         if file then
           file:write("") -- Write an empty string to create the file
           file:close() -- Close the file after writing
+          print("Marker file created at: " .. install_marker) -- Debug message
+        else
+          print("Failed to create marker file!") -- Debug message
         end
       end)
 
