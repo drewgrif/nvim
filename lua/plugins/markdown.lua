@@ -14,13 +14,20 @@ return {
     -- If npm is available and build hasn't been done, run it once
     if not is_built() and vim.fn.executable("npm") == 1 then
       vim.schedule(function()
-        print("📦 Building markdown-preview.nvim (first-time setup)...")
+        vim.notify("📦 Building markdown-preview.nvim (first-time setup)...", vim.log.levels.INFO)
         vim.cmd("call mkdp#util#install()")
       end)
     elseif vim.fn.executable("npm") == 0 then
       vim.schedule(function()
-        print("⚠️  npm not found. Markdown preview won't work until it's installed.")
+        vim.notify(
+          [[⚠️ npm is not installed. To manually build markdown-preview.nvim later, run:
+
+:call mkdp#util#install()
+]],
+          vim.log.levels.WARN
+        )
       end)
     end
   end,
 }
+
