@@ -6,27 +6,35 @@ return {
     vim.g.mkdp_filetypes = { "markdown" }
   end,
   config = function()
+    -- Function to check if the plugin has already been built
     local function is_built()
       local build_path = vim.fn.stdpath("data") .. "/lazy/markdown-preview.nvim/app/node_modules"
       return vim.fn.isdirectory(build_path) == 1
     end
 
-    -- Marker file to track successful installation
-    local install_marker = vim.fn.stdpath("config") .. "/.mkdp_installed"
+    -- Define the marker file path (storing it in the `nvim` data directory)
+    local install_marker = vim.fn.stdpath("data") .. "/nvim/.mkdp_installed"
+
+    -- If the marker file exists, skip the installation and popup
     if vim.fn.filereadable(install_marker) == 1 then
-      return -- No popup if marker exists
+      return -- No need to show the popup again if the file exists
     end
 
-    -- If npm is available and build hasn't been done, run it once
+    -- If `npm` is available and the plugin hasn't been built, run the installation
     if not is_built() and vim.fn.executable("npm") == 1 then
       vim.schedule(function()
         vim.notify("📦 Building markdown-preview.nvim (first-time setup)...", vim.log.levels.INFO)
         vim.cmd("call mkdp#util#install()")
-        -- After successful install, create marker file
-        vim.fn.writefile({}, install_marker) -- Create the marker file
+        
+        -- After successful install, create the marker file
+        local file = io.open(install_marker, "w") -- Open the file for writing
+        if file then
+          file:write("") -- Write an empty string to create the file
+          file:close() -- Close the file after writing
+        end
       end)
 
-    -- If npm is missing and we haven't warned before, show the popup
+    -- If `npm` is missing and the installation hasn't been done, show the popup
     elseif vim.fn.executable("npm") == 0 then
       vim.schedule(function()
         local buf = vim.api.nvim_create_buf(false, true)
