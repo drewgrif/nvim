@@ -18,14 +18,32 @@ return {
         vim.cmd("call mkdp#util#install()")
       end)
     elseif vim.fn.executable("npm") == 0 then
+      -- Show a copyable floating window with install instructions
       vim.schedule(function()
-        vim.notify(
-          [[⚠️ npm is not installed. To manually build markdown-preview.nvim later, run:
+        local buf = vim.api.nvim_create_buf(false, true)
+        local lines = {
+          "⚠️ npm is not installed.",
+          "To build markdown-preview.nvim manually, run:",
+          "",
+          ":call mkdp#util#install()",
+          "",
+          "← You can copy the above command"
+        }
+        vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
 
-:call mkdp#util#install()
-]],
-          vim.log.levels.WARN
-        )
+        local width = 60
+        local height = #lines
+        local win_opts = {
+          relative = "editor",
+          width = width,
+          height = height,
+          col = math.floor((vim.o.columns - width) / 2),
+          row = math.floor((vim.o.lines - height) / 2),
+          style = "minimal",
+          border = "rounded",
+        }
+
+        vim.api.nvim_open_win(buf, true, win_opts)
       end)
     end
   end,
