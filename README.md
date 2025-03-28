@@ -80,9 +80,6 @@ nvim
 
 The config will auto-install all plugins on first launch.
 
-> 📝 **Markdown users:** If `<leader>md` doesn’t work at first,  
-> see [Markdown Preview Error Fix](https://github.com/drewgrif/nvim?tab=readme-ov-file#-markdown-preview-error-fix) below.
-
 ---
 
 ## ⌨️ Keybinding Highlights
@@ -98,27 +95,6 @@ The config will auto-install all plugins on first launch.
 | **File Explorer**     | `<leader>e`                 |                        |                             |
 
 > ℹ️ Full keybindings live in `lua/core/mappings.lua`
-
-Perfect — here’s an improved version of the **Markdown Preview Fix** section, with guidance on when and how to run the fix **during markdown editing**:
-
----
-
-## 🐛 Markdown Preview Error Fix
-
-If you get an error when using `<leader>md` to preview a Markdown file, you may need to install the plugin’s Node.js dependencies manually.
-
-### 🛠️ Fix While Editing Markdown
-
-1. Open the Markdown file in Neovim.
-2. Run the following command from **normal mode**:
-
-```vim
-:call mkdp#util#install()
-```
-
-3. Then try `<leader>md` again to toggle preview.
-
-> This command sets up `markdown-preview.nvim`'s Node backend if it wasn’t installed automatically.
 
 ---
 
