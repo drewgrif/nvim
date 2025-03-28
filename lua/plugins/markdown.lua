@@ -4,21 +4,17 @@ return {
   cmd = { "MarkdownPreview", "MarkdownPreviewToggle", "MarkdownPreviewStop" },
   init = function()
     vim.g.mkdp_filetypes = { "markdown" }
-    -- Initialize the flag to track if the popup has been shown
+
+    -- Initialize the flag to track if the popup has been shown (per session)
     if vim.g.mkdp_popup_shown == nil then
       vim.g.mkdp_popup_shown = false
     end
   end,
   config = function()
-    -- Function to check if the plugin has already been built
-    local function is_built()
-      local build_path = vim.fn.stdpath("data") .. "/lazy/markdown-preview.nvim/app/node_modules"
-      return vim.fn.isdirectory(build_path) == 1
-    end
-
-    -- Only show the popup once in the session if npm is missing
-    if vim.fn.executable("npm") == 0 and not is_built() and not vim.g.mkdp_popup_shown then
+    -- Show the popup if npm is missing and plugin hasn't been built yet
+    if vim.fn.executable("npm") == 0 and vim.g.mkdp_popup_shown == false then
       vim.schedule(function()
+        -- Create the popup with installation instructions
         local buf = vim.api.nvim_create_buf(false, true)
         local lines = {
           "⚠️ npm is not installed.",
@@ -44,9 +40,10 @@ return {
 
         vim.api.nvim_open_win(buf, true, win_opts)
 
-        -- Set the flag to prevent the popup from showing again
+        -- Mark the popup as shown for the session to prevent showing it again
         vim.g.mkdp_popup_shown = true
       end)
     end
   end,
 }
+
