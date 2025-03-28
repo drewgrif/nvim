@@ -27,7 +27,7 @@ return {
           "",
           ":call mkdp#util#install()",
           "",
-          "← You can copy the above command"
+          "← You can run the above command"
         }
         vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
 
