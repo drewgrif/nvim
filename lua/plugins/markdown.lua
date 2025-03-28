@@ -2,11 +2,12 @@ return {
   "iamcco/markdown-preview.nvim",
   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
   ft = { "markdown" },
-  init = function()
-    -- Ensure mkdp#util#install is called when the plugin is loaded
-    vim.cmd("call mkdp#util#install()")
-  end,
   config = function()
     vim.g.mkdp_filetypes = { "markdown" }
+
+    -- Run the installation process after the plugin is loaded
+    vim.defer_fn(function()
+      vim.cmd("call mkdp#util#install()")
+    end, 0)  -- Defer the installation to the next event loop cycle
   end,
 }
