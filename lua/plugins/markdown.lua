@@ -11,14 +11,24 @@ return {
       return vim.fn.isdirectory(build_path) == 1
     end
 
+    -- Marker file location to track if the user has seen the warning
+    local install_marker = vim.fn.stdpath("config") .. "/.mkdp_installed"
+
+    -- If the user already installed it and the marker exists, skip everything
+    if vim.fn.filereadable(install_marker) == 1 then
+      return -- No need to show the popup again, already installed
+    end
+
     -- If npm is available and build hasn't been done, run it once
     if not is_built() and vim.fn.executable("npm") == 1 then
       vim.schedule(function()
         vim.notify("📦 Building markdown-preview.nvim (first-time setup)...", vim.log.levels.INFO)
         vim.cmd("call mkdp#util#install()")
+        -- After successful install, mark it as done
+        vim.fn.writefile({}, install_marker) -- Create the marker file
       end)
     elseif vim.fn.executable("npm") == 0 then
-      -- Show a copyable floating window with install instructions
+      -- If npm is missing and we haven't warned before, show the popup
       vim.schedule(function()
         local buf = vim.api.nvim_create_buf(false, true)
         local lines = {
