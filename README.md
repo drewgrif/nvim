@@ -94,7 +94,7 @@ The config will auto-install all plugins on first launch.
 | **Resize Left**       | `<C-Left>`                  | **Resize Right**      | `<C-Right>`                 |
 | **File Explorer**     | `<leader>e`                 |                        |                             |
 
-> ℹ️ Full keybindings live in `lua/core/mappings.lua`
+> ℹ️ Full keybindings live in `lua/core/mappings.lua` `space = leader`
 
 ---
 
