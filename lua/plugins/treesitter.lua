@@ -15,7 +15,7 @@ return {
 
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
-        "lua", "bash", "json", "yaml", "markdown", "markdown_inline"
+        "lua", "bash", "json", "yaml", "markdown", "markdown_inline", "html", "xml", "php"
       },
       auto_install = true,
 

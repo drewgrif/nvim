@@ -54,3 +54,13 @@ keymap.set("n", "<leader>g", ":vertical Git <cr>", opts)
 
 -- Markdown Preview
 keymap.set("n", "<leader>md", ":MarkdownPreviewToggle<cr>", opts)
+
+
+-- Prettier formating
+keymap.set("n", "<leader>mp", function()
+  if vim.fn.executable("prettier") == 1 then
+    vim.cmd("!prettier --write " .. vim.fn.shellescape(vim.fn.expand("%")))
+  else
+    vim.notify("❌ Prettier not found. Install with: npm install -g prettier", vim.log.levels.ERROR)
+  end
+end, { desc = "Prettier: Format Markdown" })
