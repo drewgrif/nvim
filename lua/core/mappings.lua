@@ -4,7 +4,7 @@ local keymap = vim.keymap
 local opts = { silent = true, noremap = true }
 
 -- General
---  e keymap.set("n", "<leader>q", ":qa! <cr>", opts)
+-- keymap.set("n", "<leader>q", ":qa! <cr>", opts)
 keymap.set("n", "<leader>a", "gg<S-v>G", opts)
 keymap.set("v", "<", "<gv", opts)
 keymap.set("v", ">", ">gv", opts)
@@ -37,14 +37,14 @@ keymap.set("n", "<leader>e", function()
 	require("oil").toggle_float()
 end, opts)
 
--- Telescope
-keymap.set("n", "<leader>ff", "<cmd> Telescope find_files <cr>", opts)
-keymap.set("n", "<leader>gc", "<cmd> Telescope git_branches <cr>", opts)
-keymap.set("n", "<leader>fw", "<cmd> Telescope live_grep <cr>", opts)
-keymap.set("n", "<leader>fh", "<cmd> Telescope help_tags  <cr>", opts)
+-- fzf-lua
+keymap.set("n", "<leader>ff", "<cmd> FzfLua files <cr>", opts)
+keymap.set("n", "<leader>gc", "<cmd> FzfLua git_branches <cr>", opts)
+keymap.set("n", "<leader>fw", "<cmd> FzfLua live_grep <cr>", opts)
+keymap.set("n", "<leader>fh", "<cmd> FzfLua help_tags <cr>", opts)
 
 keymap.set("n", "<leader>fc", function()
-	require("telescope.builtin").find_files({
+	require("fzf-lua").files({
 		cwd = "~/.config/nvim/",
 	})
 end, opts)

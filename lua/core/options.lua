@@ -49,7 +49,7 @@ opt.hlsearch = false
 opt.wrap = false
 
 
--- enbale signcolumn
+-- enable signcolumn
 opt.signcolumn = "yes"
 
 -- default split from bottom-right
