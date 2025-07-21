@@ -57,6 +57,8 @@ wget https://github.com/drewgrif/nvim/raw/main/nvim-linux-x86_64.deb
 sudo apt install ./nvim-linux-x86_64.deb
 ```
 
+> **Note:** The deb file currently contains Neovim v0.11.3
+
 ---
 
 ### 2. Backup Any Existing Config
