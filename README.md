@@ -13,14 +13,15 @@ No LSPs. No heavy language tooling. Just a rock-solid, keyboard-first workflow w
 
 ## ✨ Features
 
-- ⚡ Fast startup via `lazy.nvim`
+- ⚡ Fast startup via `lazy.nvim` with optimized loading
 - 📁 Buffer-based file explorer (`oil.nvim`)
-- 🔍 Fuzzy finding with `telescope.nvim`
+- 🔍 Fuzzy finding with `fzf-lua` 
 - 🧠 Smart syntax highlighting via Treesitter
 - 🎨 GitHub-inspired theme
 - 🖋️ Markdown support with optional Prettier formatting
 - 🔐 Git integration with `vim-fugitive`
 - 📦 Modular plugin structure
+- ⌨️ Keybinding discovery with `which-key.nvim`
 
 ---
 
@@ -31,7 +32,7 @@ No LSPs. No heavy language tooling. Just a rock-solid, keyboard-first workflow w
 | `alpha-nvim`             | Dashboard on launch                     |
 | `bufferline.nvim`        | Tab-style buffer UI                     |
 | `lualine.nvim`           | Statusline customization                |
-| `telescope.nvim`         | Fuzzy finder (files, words, etc.)       |
+| `fzf-lua`                | Fast fuzzy finder (files, words, etc.)  |
 | `oil.nvim`               | File browser using buffers              |
 | `nvim-treesitter`        | Syntax parsing for multiple filetypes   |
 | `vim-fugitive`           | Git integration                         |
@@ -43,6 +44,7 @@ No LSPs. No heavy language tooling. Just a rock-solid, keyboard-first workflow w
 | `render-markdown.nvim`   | Inline Markdown rendering in Neovim     |
 | `autopairs.nvim`         | Auto-close brackets, quotes, etc.       |
 | `autolist.nvim`          | Auto-continue Markdown lists (optional) |
+| `which-key.nvim`         | Keybinding discovery and help           |
 
 ---
 
@@ -50,14 +52,14 @@ No LSPs. No heavy language tooling. Just a rock-solid, keyboard-first workflow w
 
 ### 1. Requires Neovim 0.10+
 
-You can use your system's Neovim, or install my preferred version:
+**Recommended:** Install the included Neovim 0.11.4 (much newer than Debian repos):
 
 ```bash
 wget https://github.com/drewgrif/nvim/raw/main/nvim-linux-x86_64.deb
 sudo apt install ./nvim-linux-x86_64.deb
 ```
 
-> **Note:** The deb file currently contains Neovim v0.11.3
+> **Why include the .deb?** Debian 12 ships with Neovim 0.7.2 and Debian 13 has 0.10.4. This config requires 0.10+ and benefits from 0.11+ features. The included .deb provides Neovim 0.11.4 for the best experience.
 
 ---
 

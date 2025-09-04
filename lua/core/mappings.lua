@@ -45,7 +45,7 @@ keymap.set("n", "<leader>fh", "<cmd> FzfLua help_tags <cr>", opts)
 
 keymap.set("n", "<leader>fc", function()
 	require("fzf-lua").files({
-		cwd = "~/.config/nvim/",
+		cwd = vim.fn.stdpath("config"),
 	})
 end, opts)
 

@@ -1,0 +1,61 @@
+# Neovim runtime files
+lazy-lock.json
+CLAUDE.md
+
+# Plugin directories (managed by lazy.nvim)
+/lazy/
+/pack/
+/site/
+
+# Neovim session files
+*.swp
+*.swo
+*~
+.netrwhist
+Session.vim
+
+# Undo history
+*.un~
+.undo/
+
+# Tags
+tags
+.tags
+
+# Binary/Package files (excluding the nvim deb we provide)
+# *.deb  # We keep nvim-linux-x86_64.deb for installation
+*.rpm
+*.tar.gz
+*.zip
+*.AppImage
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# Local development
+.env
+.env.local
+.nvim.lua
+.nvimrc
+.exrc
+
+# Build artifacts
+build/
+dist/
+*.log
+
+# Backup files
+*.backup
+*.bak
+.backup/

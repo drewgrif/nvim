@@ -1,4 +1,41 @@
 ---@diagnostic disable: undefined-field
+vim.loader.enable() -- Speeds up Lua module loading
+
+-- Disable unused built-in plugins for faster startup
+local disabled_built_ins = {
+  "gzip",
+  "zip",
+  "zipPlugin",
+  "tar",
+  "tarPlugin",
+  "getscript",
+  "getscriptPlugin",
+  "vimball",
+  "vimballPlugin",
+  "2html_plugin",
+  "matchit",
+  "matchparen",
+  "logiPat",
+  "rrhelper",
+  "netrw",
+  "netrwPlugin",
+  "netrwSettings",
+  "netrwFileHandlers",
+  "spellfile_plugin",
+  "tutor",
+  "rplugin",
+  "syntax",
+  "synmenu",
+  "optwin",
+  "compiler",
+  "bugreport",
+  "ftplugin",
+}
+
+for _, plugin in pairs(disabled_built_ins) do
+  vim.g["loaded_" .. plugin] = 1
+end
+
 -- These modules are not loaded by lazy
 require("core.options")
 require("core.mappings")
