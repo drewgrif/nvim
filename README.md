@@ -1,3 +1,16 @@
+# 🚨 REPOSITORY MOVED
+
+This project has migrated to **Codeberg** for better alignment with open-source values.
+
+## 👉 New Location: [codeberg.org/justaguylinux/nvim](https://codeberg.org/justaguylinux/nvim)
+
+**Please update your bookmarks and clones:**
+```bash
+git remote set-url origin https://codeberg.org/justaguylinux/nvim.git
+```
+
+---
+
 # 🧠 JustAGuy Linux Neovim Config
 
 > Minimal, fast, and intuitive Neovim setup — designed for Markdown writing, scripting, and everyday editing without unnecessary bloat.
